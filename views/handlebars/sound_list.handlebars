@@ -1,0 +1,6 @@
+<span class="title">Добавить:</span>
+{{#each instrument.sound_list}}
+    <button class="btn round {{#if active}} active {{/if}}" title="Тип" data-sound="{{@key}}"><i class="{{@key}}"></i></button>
+{{/each}}
+<!--<button class="btn round" title="Тип"><i class="type-4"></i></button>-->
+<input type="text" value="{{bpm}}" class="inp bpm">

@@ -1,0 +1,19 @@
+<div class="work-tabs">
+    <div class="play" style="left:92px;"></div>
+    {{#each track_list}}
+    <div class="track {{#if instrument.attributes.active}}active{{/if}}" data-trackNum="{{@key}}">
+        <div class="name">
+            <div alt="{{instrument.attributes.name}} (Popup)">{{instrument.attributes.name}}</div>
+        </div>
+        {{#each sector_list}}
+        <div class="sector">
+            <ul>
+            {{#each wave}}
+                <li><i data-num="{{counter @key}}" data-sound="{{#if this.sound}}{{this.sound}}{{/if}}" class="{{this.val}}"></i></li>
+            {{/each}}
+            </ul>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</div>

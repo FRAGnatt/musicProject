@@ -1,0 +1,714 @@
+@charset "utf-8";
+
+
+// HTML 5
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video {display: inline-block; *display: inline; *zoom: 1;}
+audio:not([controls]) {display: none;}
+[hidden] {display: none;}
+article,aside,details,figure,footer,header,hgroup,nav,section {display: block;}
+
+
+// -------------------------------------------------------------------------------------------------------
+// 												BASE RESET
+// -------------------------------------------------------------------------------------------------------
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  height:100%;
+  padding: 0;
+  margin: 0;
+
+  * {
+	-webkit-font-smoothing: antialiased;
+  }
+
+  body {
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+	width:100%;
+	line-height: 1em;
+	height: 100%;
+	background-color: @color-white;
+  }
+
+  h1, h2, h3, h4, h5, h6{
+	margin: 0;
+	padding: 0;
+	text-rendering: optimizelegibility;
+  }
+
+// Убрать внешнюю рамку //
+
+  a:hover, a:active, *:focus {outline: 0;}
+
+  button::-moz-focus-inner,
+  input[type="reset"]::-moz-focus-inner,
+  input[type="button"]::-moz-focus-inner,
+  input[type="submit"]::-moz-focus-inner,
+  input[type="submit"]::-moz-focus-inner,
+  input[type="file"],
+  input[type="button"]::-moz-focus-inner
+  {border: none;}
+
+// Typo //
+  abbr[title] { border-bottom: 1px dotted; }
+  b, strong { font-weight: bold; }
+  blockquote { margin: 1em 40px; }
+  dfn { font-style: italic; }
+  ins { background: #ff9; color: #000; text-decoration: none; } //Обновление//
+  mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; } //Помеченный//
+// Redeclare monospace font family: h5bp.com/j //
+  pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
+// Improve readability of pre-formatted text in all browsers //
+  pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+  q { quotes: none; }
+  q:before, q:after { content: ""; content: none; }
+  dd { margin: 0 0 0 40px; }
+  legend { border: 0; *margin-left: -7px; padding: 0; white-space: normal; }
+  figure { margin: 0; }
+  svg:not(:root) { overflow: hidden; }
+  img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+
+// Chrome Frame  //
+  .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
+
+// form //
+  form {margin: 0;}
+  fieldset {border: 0; margin: 0; padding: 0;}
+
+// Position subscript and superscript content without affecting line-height: h5bp.com/k //
+  sub, sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+  sup { top: -0.5em; }
+  sub { bottom: -0.25em; }
+
+// INPUT RESET
+  button, input, select {
+	margin: 0;
+	outline: none;
+  }
+  button, input[type="button"], input[type="reset"], input[type="submit"] {
+	-webkit-appearance: button;
+	*overflow: visible;
+  }
+  button, input {
+	&:disabled, &[disabled] {cursor: default;}
+  }
+
+  textarea {
+	overflow: auto;
+	vertical-align: top;
+	resize: vertical;
+	font-family: inherit;
+	outline: none;
+  }
+
+// Лишние отступы в ФФ//
+  button::-moz-focus-inner { margin: -1px; padding: 0; }
+  input::-moz-focus-inner {margin: 0px; padding: 0; border: 0;}
+  input[type='submit']::-moz-focus-inner{padding:0;border:0}
+
+// placeholder //
+  input::-webkit-input-placeholder {padding-left: 0px;}
+  input::-moz-placeholder {padding-left: 0px;}
+
+// label //
+  label { cursor: pointer; }
+
+// LIST //
+  ul {margin: 0; padding: 0; list-style: none}
+  ol {margin: 0; padding: 0 0 0 2.1em;}
+  li {padding: 0; margin: 0;}
+
+// table //
+  table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: auto;
+
+	td, th {
+	  vertical-align: top;
+	  text-align: left;
+	  padding:0;
+	}
+  }
+
+  hr {display: block; border: 0; border-top-width:1px; border-style:solid; margin: 0; padding: 0; }
+
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } // Black prints faster: h5bp.com/s //
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  // Don't show links for images, or javascript/internal links //
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } // h5bp.com/t //
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+
+
+// -------------------------------------------------------------------------------------------------------
+// 												FONTS
+// -------------------------------------------------------------------------------------------------------
+// STANDART FONTS
+
+.font {
+  .arial {font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;}
+  .arialblack {font-family: "Arial Black", "Helvetica CY", "Nimbus Sans L" sans-serif;}
+  .times {font-family: "Times New Roman", "Times CY", "Nimbus Roman No9 L", serif;}
+}
+.font-open {
+  font-family: 'Open Sans', sans-serif;
+}
+
+// -------------------------------------------------------------------------------------------------------
+// 												STANDART CLASSES & INNER ELEMENTS
+// -------------------------------------------------------------------------------------------------------
+
+// Border Radius
+.border-radius(@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+// Drop shadows
+  .box-shadow(@shadow: 0 1px 3px rgba(0,0,0,0.25)) {
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  box-shadow: @shadow;
+}
+
+// Transitions
+  .transition(@transition: all 0.5s ease) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -ms-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+
+// Transformations
+.rotate(@degrees: -20deg) { //ex: -20deg
+  -webkit-transform: rotate(@degrees);
+  -moz-transform: rotate(@degrees);
+  -ms-transform: rotate(@degrees);
+  -o-transform: rotate(@degrees);
+  transform: rotate(@degrees);
+}
+//Растягивание: ширина, высота//
+.scale(@ratio: 1.5,@ratio2: 1) {
+  -webkit-transform: scale(@ratio,@ratio2);
+  -moz-transform: scale(@ratio,@ratio2);
+  -ms-transform: scale(@ratio,@ratio2);
+  -o-transform: scale(@ratio,@ratio2);
+  transform: scale(@ratio,@ratio2);
+}
+
+// Hide & Invisible
+.hide {display: none;}
+.invisible {visibility: hidden;}
+
+// Opacity
+.opacity(@opacity: 100) {
+  opacity: @opacity / 100;
+  filter: ~"e(%('alpha(opacity=%d)', @opacity))";
+}
+
+// Gradients
+#gradient {
+  filter:none; // For IE 9 (SVG)
+  .horizontal(@startColor: #555, @endColor: #eee) {
+	background-color: @endColor;
+	background-image: -moz-linear-gradient(left, @startColor, @endColor); // FF 3.6+
+	background-image: -ms-linear-gradient(left, @startColor, @endColor); // IE10
+	background-image: -webkit-gradient(linear, 0 0, 100% 0, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
+	background-image: -webkit-linear-gradient(left, @startColor, @endColor); // Safari 5.1+, Chrome 10+
+	background-image: -o-linear-gradient(left, @startColor, @endColor); // Opera 11.10
+	background-image: linear-gradient(left, @startColor, @endColor); // Le standard
+	background-repeat: repeat-x;
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",@startColor,@endColor)); // IE9 and down
+  }
+  .vertical(@startColor: #555, @endColor: #eee) {
+	background-color: mix(@startColor, @endColor, 60%);
+	background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
+	background-image: -ms-linear-gradient(top, @startColor, @endColor); // IE10
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
+	background-image: -webkit-linear-gradient(top, @startColor, @endColor); // Safari 5.1+, Chrome 10+
+	background-image: -o-linear-gradient(top, @startColor, @endColor); // Opera 11.10
+	background-image: linear-gradient(top, @startColor, @endColor); // The standard
+	background-repeat: repeat-x;
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor)); // IE9 and down
+  }
+}
+
+
+// Box-sizing
+.boxsizing {
+  box-sizing: border-box;
+  -moz-box-sizing:border-box;
+}
+
+// -------------------------------------------------------------------------------------------------------
+// 												STANDART ELEMENTS
+// -------------------------------------------------------------------------------------------------------
+
+// clear //
+.clear {
+  display: block;
+  position: relative;
+  clear: both;
+  font-size: 0px;
+  height:0px;
+  line-height: 1px;
+  padding:0;
+}
+
+// Clearfix //
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+	display: table;
+	content: "";
+  }
+  &:after {
+	clear: both;
+  }
+}
+
+
+
+// -------------------------------------------------------------------------------------------------------
+// 												COLORS & SIZES
+// -------------------------------------------------------------------------------------------------------
+
+// Base Elements
+@baseTextColor:@color-black; // Цвет текста
+@baseBgColor:@color-fog; // Цвет фона
+@baseFontSize:@fontsize; // Размер шрифта
+@linkColor:@color-blue; // Ссылка
+@linkHover:@color-red; // Ссылка ПНМ
+@linkActive:@color-red; // Ссылка актив
+@linkVisited:@color-red; // Ссылка визит
+@select-bg:@color-grey; // Фон выделенного текста
+@select-text:@color-white; // Цвет выделенного текста
+@placeholder-color: @color-grey; // Плейсхолдер
+
+// Colors:
+@color-black:		#000000;
+@color-white:		#ffffff;
+@color-grey:		#a6a2a1;
+@color-blue:		#2074e5;
+@color-green:		#7cbd5d;
+@color-orange: 		#f99117;
+@color-red:			#f91717;
+@color-darkred:     #a70005;
+@color-beige:		#f2e3b6;
+@color-sand:		#d9b777;
+@color-brown:		#8c6d51;
+@color-fog:			#d9d4d2;
+@color-platina: 	#eaecef;
+
+// Sizes
+@fontsize: 14px; // Базовый размер шрифта
+@size-h1:24px;
+@size-h2:21px;
+@size-h3:18px;
+@size-h4:14px;
+@size-h5:12px;
+
+// Fonts
+@fontfamily:Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+
+// -------------------------------------------------------------------------------------------------------
+// 												BASE STYLES
+// -------------------------------------------------------------------------------------------------------
+
+body {
+  font-size:@baseFontSize;
+  font-family: @fontfamily;
+//  background: @baseBgColor url('../img/bg.gif') repeat 0 0;
+  color: @baseTextColor;
+
+  a, .link {
+	color:@color-brown;
+	text-decoration: underline;
+	cursor:pointer;
+	&:hover, &focus {
+	  color:@color-black;
+	}
+	&:active {
+	  color:@color-orange;
+	}
+  }
+}
+
+// =============================================================================================================
+// Плейсхолдер
+* {
+  @ph-text:@placeholder-color; // Цвет текста плейсхолдера
+  &::-webkit-input-placeholder {color: @ph-text;} // Webkit
+  &:-moz-placeholder {color: @ph-text;} // FF -18
+  &::-moz-placeholder {color: @ph-text;} // FF 19+
+  &:-ms-input-placeholder {color: @ph-text; } // MS
+}
+
+
+// =============================================================================================================
+// * Стиль выделенного текста *
+// =============================================================================================================
+
+// Не выделять текст
+.nohl {
+  @bg: transparent; // Фон при выделении
+  &::-moz-selection {
+	background: @bg;
+  }
+  &::selection {
+	background: @bg;
+  }
+}
+
+// =============================================================================================================
+// * TITLES *
+// =============================================================================================================
+h1, .h1 {
+  font-size:@size-h1;
+  font-weight: normal;
+}
+h2, .h2 {
+  font-size:@size-h2;
+  font-weight: normal;
+}
+h3, .h3 {
+  font-size:@size-h3;
+  font-weight: normal;
+}
+h4, .h4 {
+  font-size:@size-h4;
+  font-weight: bold;
+}
+h5, .h5 {
+  font-size:@size-h5;
+  font-weight: bold;
+}
+h6, .h6 {
+  font-size:@fontsize;
+}
+
+// =============================================================================================================
+// * ТЕНИ *
+// =============================================================================================================
+
+.shadow1 {
+  .box-shadow(inset 0 0px 2px 0px rgba(0,0,0,0.25));
+}
+.shadow2 {
+  .box-shadow(0 1px 2px 0px rgba(0,0,0,0.1));
+}
+
+// Нет тени
+.noshadow {
+  .box-shadow(inset 0 0px 0px 0px rgba(0,0,0,0));
+}
+
+// Имитация бордера
+.pseudoborder(@color: @color-grey) {
+  -webkit-box-shadow:	inset 0px 0px 0px 1px @color;
+  -moz-box-shadow: 		inset 0px 0px 0px 1px @color;
+  box-shadow:			inset 0px 0px 0px 1px @color;
+}
+
+
+// =============================================================================================================
+// * ССЫЛКИ *
+// =============================================================================================================
+
+.dotted {
+  text-decoration: none;
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+}
+
+// =============================================================================================================
+//  * RADIO & CHECKBOX *
+// =============================================================================================================
+.div-row {
+  .clearfix;
+  display: inline-block;
+}
+input[type="checkbox"], input[type="radio"]{
+  display: none;
+  & + label {
+	padding: 0px;
+	display: block;
+	line-height: 20px;
+	font-size: @fontsize;
+	float: left;
+
+	&:hover {color: @color-blue;}
+  }
+
+  &:disabled + label {
+	&,&:hover,&:active {  
+	  color: @color-grey;
+	}
+  }
+
+  & + label > .imi-box {
+	background-image: url(../img/checkradio.png);
+	background-repeat: no-repeat;
+	display: block;
+	width:19px;
+	height:20px;
+	float: left;
+	margin-right: 6px;
+	overflow: hidden;
+  }
+
+  & + label > .label-text {
+	font-size: @fontsize;
+	position: relative;
+	display: block;
+	margin-bottom: 1px;
+	padding-left: 25px;
+	margin-top: 0px;
+  }
+}
+
+// --- CHECKBOX -------------------------------------------------
+input[type="checkbox"]{
+  & + label > .imi-box {background-position:0px 0;}
+  & + label:hover > .imi-box,& + label:hover > .imi-box {background-position:0px -20px;}
+  & + label:active > .imi-box {background-position:0px -40px;}
+  &:checked + label > .imi-box {background-position: 0 -80px;}
+  &:checked + label:hover > .imi-box {background-position: 0 -100px;}
+  &:checked + label:active > .imi-box {background-position: 0 -120px;}
+  &:disabled + label > .imi-box {background-position: 0 -60px;}
+  &:disabled:checked + label > .imi-box {background-position: 0 -140px;}
+}
+
+// --- RADIO ----------------------------------------------------
+input[type="radio"]{
+  & + label > .imi-box {background-position:-19px 0;}
+  & + label:hover > .imi-box,& + label:hover > .imi-box {background-position:-19px -20px;}
+  & + label:active > .imi-box {background-position:-19px -40px;}
+  &:checked + label > .imi-box {background-position: -19px -80px;}
+  &:checked + label:hover > .imi-box {background-position: -19px -100px;}
+  &:checked + label:active > .imi-box {background-position: -19px -120px;}
+  &:disabled + label > .imi-box {background-position: -19px -60px;}
+  &:disabled:checked + label > .imi-box {background-position: -19px -140px;}
+}
+
+
+// =============================================================================================================
+//  * INPUTS *
+// =============================================================================================================
+
+// COLORS & STYLES
+.input-normal {
+  background-color: @color-white;
+  border-color:@color-platina;
+  color:@color-black;
+}
+
+.input-hover {
+
+}
+
+.input-error {
+  border-color: @color-red;
+  color:@color-red;
+}
+
+.input-focus {
+  border-color: @color-green;
+}
+
+.input-disabled {
+  background-color: @color-grey + 111;
+  color: @color-grey;
+  border-color: @color-grey;
+  .noshadow;
+}
+
+// INPUTS :
+textarea, input[type="text"],input[type="password"],input[type="email"],input[type="date"],input[type="datetime"],
+input[type="datetime-local"],input[type="number"],input[type="month"],input[type="week"],
+input[type="search"],input[type="tel"],input[type="time"],input[type="url"], .inp {
+  .boxsizing;
+  .input-normal;
+  .border-radius(3px);
+  vertical-align: middle;
+  padding:0px 3px 0px 3px;
+  height:27px;
+  border-width:1px;
+  border-style:solid;
+  font-size:@fontsize;
+
+// HOVER
+  &:hover {
+	.input-hover
+  }
+
+// VALIDATION
+  &:valid, &:valid {} // VALID
+  &:invalid, &:invalid, &.error {
+	.input-error;
+  }
+
+// FOCUS
+  &:focus {
+	.input-focus;
+  }
+
+// DISABLED
+  &:disabled, &.disabled,&.disabled:hover,&.disabled:active {
+	.input-disabled;
+  }
+
+  &.bpm {
+	width: 50px;
+	text-align: center;
+  }
+}
+
+// SCROLL
+
+.scroll {
+  &::-webkit-scrollbar-track
+  {
+	background-color: @color-white;
+  }
+
+  &::-webkit-scrollbar
+  {
+	width: 5px;
+	height:5px;
+	background-color: #F5F5F5;
+  }
+
+  &::-webkit-scrollbar-thumb
+  {
+	background: @color-fog;
+  }
+  &.work-tabs-wrapper {
+	&::-webkit-scrollbar-track
+	{
+	  background-color: @color-white;
+	}
+
+	&::-webkit-scrollbar
+	{
+	  height:5px;
+	  background-color: #F5F5F5;
+	}
+
+	&::-webkit-scrollbar-thumb
+	{
+	  background: @color-beige;
+	}
+  }
+}
+
+// ------------------------------------------------------------------------------------------------------------
+// BUTTON
+// ------------------------------------------------------------------------------------------------------------
+
+button, .btn {
+  .border-radius(2px);
+  .font-open;
+  background-color: @color-beige;
+  border: 1px solid @color-sand;
+  color: @color-brown;
+  line-height: 20px;
+  padding:0px 5px;
+  cursor: pointer;
+
+  &:hover {
+	background-color: @color-sand;
+  }
+
+  &:active {
+	.box-shadow(inset 0px 0px 4px 3px rgba(0,0,0,0.1));
+  }
+
+// GREEN
+  &.green {
+	background-color: @color-green;
+	color: @color-white;
+	border-color: @color-green - 10;
+	&:hover {
+	  background-color: @color-green + 20;
+	}
+  }
+// RED
+  &.red {
+	background-color: @color-darkred + 40;
+	color: @color-white;
+	border-color: @color-darkred;
+	&:hover {
+	  background-color: @color-red + 20;
+	}
+  }
+
+  &.round {
+	.border-radius(20px);
+	background-color: @color-white;
+	border-color: @color-platina;
+	width:30px;
+	height:30px;
+	line-height: 30px;
+	text-align: center;
+	&:hover {
+	  background-color: @color-green;
+	  border-color: @color-green - 20;
+	  color: @color-white;
+	}
+	&.active {
+	  color: @color-green;
+	  border-color: @color-green - 20;
+	  background-color: @color-green + 100;
+	}
+  }
+
+  &:disabled,&:disabled:hover,&:disabled:active {
+	background-color: @color-platina - 20!important;
+	color: @color-white - 10!important;
+	border-color: @color-platina - 10!important;
+  }
+}
+
+
+// =============================================================================================================
+// * TEXTAREA *
+// =============================================================================================================
+textarea {
+  height: 70px;
+  line-height: 20px;
+  resize: none!important;
+  &:disabled {
+	overflow: hidden;
+  }
+}
+
+
+
+// TITLE
+
+.title {
+  font-weight: bold;
+  font-size: 15px;
+  color: @color-brown;
+  padding: 10px 0;
+}

@@ -1,0 +1,231 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/**################################################################*/
+
+#services .left_bar{
+    width: 200px;
+    height: 200px;
+    text-align: left;
+    border: ridge;
+    margin-top: 20px;
+    float:left;
+}
+
+#services .background-color-yellow{
+    background-color:yellow;
+}
+
+#services .top_bar{
+    float:left;
+    width: 80%;
+    border: ridge;
+}
+
+#services nav {
+    float:left;
+    margin-top:20px;
+}
+
+#services nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#services nav li {
+    float: left;
+}
+
+#services nav a {
+    float: left;
+    color: #eee;
+    margin: 0 5px;
+    padding: 3px;
+    text-decoration: none;
+    border: 1px solid #831608;
+    font: bold 14px Arial, Helvetica;
+    background-color: #831608;
+    background-image: linear-gradient(#bb413b, #831608);
+    border-radius: 5px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.8);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 3px 0 rgba(0, 0, 0, 0.7), 0 2px 2px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+#services nav a:hover {
+    background-color: #bb413b;
+    background-image: linear-gradient(#831608, #bb413b);
+}
+
+#services nav a:active {
+    background: #bb413b;
+    position: relative;
+    top: 2px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.7) inset;
+}
+
+#services nav span {
+    border: 1px dashed #eba1a3;
+    display: inline-block;
+    padding: 4px 15px;
+    cursor: pointer;
+    background-color: #bb413b;
+    background-image: linear-gradient(#d4463c, #aa2618);
+}
+
+#services nav a:hover span {
+    background-color: #bb413b;
+    background-image: linear-gradient(#aa2618, #d4463c);
+}
+
+#services .sound_generator{
+    height: 300px;
+    border: ridge;
+    width:80%;
+    float:left;
+    border-color:blue;
+}
+
+#services .sound_generator .sound_track{
+    height:100px;
+    border:ridge;
+    border-color:red;
+    width: 100%;
+}
+
+#services .sound_generator .sound_track .instrumental_name{
+    width:20%;
+    height:100%;
+    padding-top:25px;
+    border:ridge;
+    border-color: lightcoral;
+    float:left;
+}
+
+#services .sound_generator .sound_track .track{
+    width:80%;
+    height:100%;
+    float:left;
+    border: ridge;
+    border-color: coral;
+    position: relative;
+}
+
+#services .sound_generator .sound_track .track .four{
+    width:50%;
+    height:100%;
+    float:left;
+    border: ridge;
+    border-color: green;
+}
+
+#services .sound_generator .sound_track .track .four .point{
+    padding:25px 38px;
+    float:left;
+    height:100%;
+    width:25%;
+
+}
+#services .sound_generator .sound_track .track .four .vertical-line{
+    float:left;
+    position:absolute;
+    border-left: 1px solid black;
+    height:85px;
+    left: 0px;
+}
+#services .sound_generator .sound_track .track .four .sound{
+    float:left;
+    position:absolute;
+    /*border-left: 1px solid aquamarine;*/
+    height:85px;
+    top:28px;
+}
