@@ -15,7 +15,6 @@ define(["collection/instrument","collection/track","models/sound-map","template/
             _.bindAll(this, "play");
             $(document).bind('keydown', this.play); // todo Hack space key to play music
             this.soundMap = new SoundMap();
-            log(this.soundMap);
             this.instrumentCollection = new InstrumentCollection();
             this.instrumentCollection.add({
                 name: "agogo",
@@ -65,15 +64,69 @@ define(["collection/instrument","collection/track","models/sound-map","template/
             });
             this.trackCollection = new TrackCollection();
             var wave = [];
-            for (var i = 0; i < 100; i++){
-                wave.push({
-                    val: "empty",
-                    sound: false
 
-                });
+            for (var i = 0; i < 100; i++){
+                if (i % 3 == 0){
+                    wave.push({
+                        val: "hi",
+                        sound: "agogo-hi"
+                    });
+                } else {
+                    wave.push({
+                        val: "empty",
+                        sound: false
+                    });
+                }
             }
+
+
             this.trackCollection.add({
                 instrument: this.instrumentCollection.where({name:"agogo"})[0],
+                sector_list: [
+                    {
+                        wave: wave
+                    }
+                ]
+            });
+            var wave = [];
+            for (var i = 0; i < 100; i++){
+                if (i % 25 == 0){
+                    wave.push({
+                        val: "hi",
+                        sound: "metronome"
+                    });
+                } else {
+                    wave.push({
+                        val: "empty",
+                        sound: false
+                    });
+                }
+            }
+            this.trackCollection.add({
+                instrument: this.instrumentCollection.where({name:"metronome"})[0],
+                sector_list: [
+                    {
+                        wave: wave
+                    }
+                ]
+            });
+
+            var wave = [];
+            for (var i = 0; i < 100; i++){
+                if (i % 3 == 1){
+                    wave.push({
+                        val: "hi",
+                        sound: "djembe-hi"
+                    });
+                } else {
+                    wave.push({
+                        val: "empty",
+                        sound: false
+                    });
+                }
+            }
+            this.trackCollection.add({
+                instrument: this.instrumentCollection.where({name:"djembe"})[0],
                 sector_list: [
                     {
                         wave: wave
@@ -85,7 +138,6 @@ define(["collection/instrument","collection/track","models/sound-map","template/
             $(".left-col").html(Templates["views/handlebars/instrument_list.handlebars"]({
                 instrumental_list: this.instrumentCollection.toJSON()
             }));
-            log(this.trackCollection.bpm)
             $(".work-menu").html(Templates["views/handlebars/sound_list.handlebars"]({
                 instrument: this.instrumentCollection.where({active:true})[0].toJSON(),
                 bpm: this.trackCollection.bpm
@@ -158,7 +210,7 @@ define(["collection/instrument","collection/track","models/sound-map","template/
                 el.preventDefault();
                 var flag = false;
                 var linePosition = 0;
-                var tickTime = 25;
+                var tickTime = 10;
                 var $play = $(".play");
                 var bpm = this.trackCollection.bpm;
                 var sound_element = {};
@@ -171,34 +223,24 @@ define(["collection/instrument","collection/track","models/sound-map","template/
                             if (!sound_element[k*8]){
                                 sound_element[k*8] = []
                             }
-                            log(v.sound);
                             sound_element[k*8].push(soundMap.get(v.sound))
                         }
                     })
                 });
                 flag = true;
                 var speed = (((800/4 * (bpm / 60))/1000)*tickTime);
-                log(speed);
                 var start = Date.now();
                 var time = 0;
                 var instance = function () {
                     linePosition = ( linePosition + speed ) % 800;
                     $play.css({"left": linePosition + 92});
-                    _.each(sound_element,function(val,key){
-                        if(key >= linePosition - speed && key < linePosition){
-                            if (_.isArray(val)) {
-                                _.each(val, function (v, k) {
-                                    v.play();
-                                })
-                            } else {
-                                val.play();
-                            }
-
-                        }
-                    });
+                    for (var num = Math.floor((linePosition - speed)/8)*8; num < linePosition; num +=8) {
+                        _.each(sound_element[num], function (v, k) {
+                            v.play();
+                        })
+                    }
                     time += tickTime;
                     var diff = (Date.now() - start) - time;
-                    log(diff);
                     if (flag) {
                         setTimeout(instance, (tickTime - diff));
                     }
